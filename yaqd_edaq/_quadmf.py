@@ -1,4 +1,4 @@
-__all__ = ["Quadmf"]
+__all__ = ["QuadMF"]
 
 import asyncio
 from typing import Dict, Any
@@ -9,15 +9,16 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 
-class Quadmf(Sensor):
-    _kind = "QuadMF"
+class QuadMF(Sensor):
+    _kind = "quadmf"
     defaults: Dict[str, Any] = {}
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
         # Perform any unique initialization
 
-        self.channels = {"channel": ("units", ())}
+        self.channels = {"channel": ("units", ()),
+                         "curtis": ("mm", ())}
 
 
     def _load_state(self, state):
@@ -43,7 +44,8 @@ class Quadmf(Sensor):
 
 
     async def _measure(self):
-        return {"channel": 0}
+        import numpy
+        return {"channel": 0, "curtis": numpy.pi}
 
 
 

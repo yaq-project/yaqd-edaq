@@ -43,7 +43,7 @@ setup(
     description="yaq daemons for edaq sensor recording systems",
     entry_points={
         "console_scripts": [
-            "yaqd-QuadMF=yaqd_edaq._QuadMF:Quadmf.main",
+            "yaqd-quadmf=yaqd_edaq._quadmf:QuadMF.main",
         ],
     },
     install_requires=requirements,
