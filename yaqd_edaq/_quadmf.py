@@ -26,9 +26,9 @@ class QuadMF(Sensor):
                 self.ser.write(f"set c {i} units config[f'c_{i}_units']\n".encode())
             
         self.channels = {"channel 1": (config.get('c_1_units',None), ()),
-                         "channel 2": (config.get('c_2_units',None) ()),
-                         "channel 3": (config.get('c_3_units',None) ()),
-                         "channel 4": (config.get('c_4_units',None) ()),
+                         "channel 2": (config.get('c_2_units',None), ()),
+                         "channel 3": (config.get('c_3_units',None), ()),
+                         "channel 4": (config.get('c_4_units',None), ()),
                          }
 
 
