@@ -5,6 +5,8 @@ from typing import Dict, Any
 
 from yaqd_core import Sensor, logging
 
+import serial
+
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
@@ -15,10 +17,19 @@ class QuadMF(Sensor):
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
-        # Perform any unique initialization
-
-        self.channels = {"channel": ("units", ()),
-                         "curtis": ("mm", ())}
+        # Perform any unique initializationset
+        self.ser = serial.Serial(config['serialport'], 115200)
+        for i in range (1,5):
+            mode = config[f'c_{i}_mode']
+            self.ser.write(f"set c {i} function {mode}\n".encode())
+            if mode == 'pH&ISE':
+                self.ser.write(f"set c {i} units config[f'c_{i}_units']\n".encode())
+            
+        self.channels = {"channel 1": (config.get('c_1_units',None), ()),
+                         "channel 2": (config.get('c_2_units',None) ()),
+                         "channel 3": (config.get('c_3_units',None) ()),
+                         "channel 4": (config.get('c_4_units',None) ()),
+                         }
 
 
     def _load_state(self, state):
