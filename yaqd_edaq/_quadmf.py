@@ -5,7 +5,7 @@ from typing import Dict, Any
 
 from yaqd_core import Sensor, logging
 
-import serial
+import serial  # type: ignore
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
