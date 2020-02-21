@@ -1,7 +1,7 @@
-import yaqc
+import yaqc  # type: ignore
 
 edaq = yaqc.Client(38000)
-config = eqaq.get_config()
+config = edaq.get_config()
 
 
 
