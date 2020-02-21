@@ -35,6 +35,12 @@ class QuadMF(Sensor):
     def blink(self):
     
         self.ser.write(b"blink\n")
+        
+    def remove_calibration(self, chno):
+        self.ser.write(f"cal c {chno} remove all\n".encode())
+        
+    def add_calibration_point(self, chno, pointno, knownval)
+        self.ser.write(f"cal c {chno} set {pointno} {knownval}\n".encode())
   
     async def _measure(self):
         self.ser.reset_input_buffer()
