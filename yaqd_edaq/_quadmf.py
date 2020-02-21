@@ -33,7 +33,7 @@ class QuadMF(Sensor):
 
 
     def blink(self):
-        self.ser.write(b"blink\n")
+    
         self.ser.write(b"blink\n")
   
     async def _measure(self):
