@@ -19,6 +19,7 @@ class QuadMF(Sensor):
         super().__init__(name, config, config_filepath)
         # Perform any unique initializationset
         self.ser = serial.Serial(config['serialport'], 115200)
+        self.ser.timeout=1
         for i in range (1,5):
             mode = config[f'c_{i}_mode']
             self.ser.write(f"set c {i} function {mode}\n".encode())
@@ -41,6 +42,15 @@ class QuadMF(Sensor):
         
     def add_calibration_point(self, chno, pointno, knownval):
         self.ser.write(f"cal c {chno} set {pointno} {knownval}\n".encode())
+        
+    def raw_write(self, string):
+        self.ser.reset_input_buffer()
+        self.ser.write(string.encode())
+        while True:
+            line = self.ser.readline()
+            if line == b"":
+                break
+            logger.info(line)
   
     async def _measure(self):
         self.ser.reset_input_buffer()

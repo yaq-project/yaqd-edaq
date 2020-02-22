@@ -18,8 +18,8 @@ calibpoints = config.get('calibpoints', 3)
 calibvalues = config.get('calibvalues', [4,7,10])
 
 for i in range (1,calibpoints+1):
-    print(f'place probe in pH={calibvalues[i]} buffer, then press enter')
+    print(f'place probe in pH={calibvalues[i-1]} buffer, then press enter')
     input()
-    edaq.add_calibration_point(chno, i, calibvalues[i])
+    edaq.add_calibration_point(chno, i, calibvalues[i-1])
 
 print('Calibration Complete')
