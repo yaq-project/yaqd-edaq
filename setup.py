@@ -15,15 +15,10 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 
-requirements = ["yaqd-core"]
+requirements = ["yaqd-core", "yaqc", "pyserial"]
 
 extra_requirements = {"dev": ["black", "pre-commit"]}
 
-setup_requirements = [
-]
-
-test_requirements = [
-]
 extra_files = {"yaqd_edaq": ["VERSION"]}
 
 setup(
@@ -56,9 +51,6 @@ setup(
     keywords="yaqd-edaq",
     name="yaqd-edaq",
     packages=find_packages(include=["yaqd-edaq", "yaqd-edaq.*"]),
-    setup_requires=setup_requirements,
-    test_suite="tests",
-    tests_require=test_requirements,
     url="https://gitlab.com/yaq/yaqd-edaq",
     version=version,
     zip_safe=False,
