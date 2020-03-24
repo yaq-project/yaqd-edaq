@@ -13,6 +13,7 @@ logger.setLevel(logging.INFO)
 
 class QuadMF(Sensor):
     _kind = "quadmf"
+    traits = ["uses-serial", "uses-uart"]
     defaults: Dict[str, Any] = {}
 
     def __init__(self, name, config, config_filepath):
