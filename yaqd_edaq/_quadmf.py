@@ -19,7 +19,7 @@ class QuadMF(Sensor):
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
         # Perform any unique initializationset
-        self.ser = serial.Serial(config["serialport"], 115_200)
+        self.ser = serial.Serial(config["serial_port"], 115_200)
         self.ser.timeout = 1
         for i in range(1, 5):
             mode = config[f"c_{i}_mode"]
