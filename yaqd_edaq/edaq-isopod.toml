@@ -1,0 +1,44 @@
+protocol = "edaq-isopod"
+doc = "Daemon representing isoPod data recorders as yaq sensors."
+traits = ["has-measure-trigger", "uses-serial", "uses-uart", "is-sensor", "is-daemon"]
+hardware = ["edaq:epu452"]
+
+[links]
+source = "https://gitlab.com/yaq/yaqd-edaq"
+bugtracker = "https://gitlab.com/yaq/yaqd-edaq/-/issues"
+
+[installation]
+PyPI = "https://pypi.org/project/yaqd-edaq"
+
+[[types]]
+type = "record"
+name = "channel"
+fields = [{"name"="mode", "type"="string"},
+	  {"name"="index", "type"="int"},
+	  {"name"="units", "type"="string"}]
+
+[config]
+
+[config.baud_rate]
+default = 115200
+
+[config.channels]
+doc = "Mapping of channel names to channel configs."
+type = "map"
+values = "channel"
+
+[state]
+
+[messages]
+
+[messages.add_calibration_point]
+doc = "Add calibration point."
+request = []
+
+[messages.blink]
+doc = "Blink the front panel power indicator LED once."
+request = []
+
+[messages.remove_calibration]
+doc = "Remove calibration."
+request = []

@@ -39,7 +39,7 @@ flycheck_*.el
 *.ico
 
 # mypy
-.mypy_cache/
+*.mypy_cache/
 
 # tests / coverage reports
 .coverage
