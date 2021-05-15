@@ -9,6 +9,7 @@ bugtracker = "https://gitlab.com/yaq/yaqd-edaq/-/issues"
 
 [installation]
 PyPI = "https://pypi.org/project/yaqd-edaq"
+conda-forge = "https://anaconda.org/conda-forge/yaqd-edaq"
 
 [[types]]
 type = "record"
