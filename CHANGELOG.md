@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ### Fixed
 - removed old setup.py
+- fixed kind
 
 ## [2021.5.0]
 

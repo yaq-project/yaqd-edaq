@@ -6,7 +6,7 @@ from yaqd_core import UsesUart, UsesSerial, HasMeasureTrigger, IsSensor, IsDaemo
 
 
 class EdaqIsoPod(UsesUart, UsesSerial, HasMeasureTrigger, IsSensor, IsDaemon):
-    _kind = "edaq-quadmf"
+    _kind = "edaq-isopod"
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
