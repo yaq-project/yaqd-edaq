@@ -31,7 +31,8 @@ entry:
   stage: test
   script:
     - yaqd-edaq-isopod --version
-    - yaqd-edaq-isopod -h
+    - yaqd-edaq-isopod --help
+    - yaqd-edaq-isopod --protocol
 traits:
   stage: test
   script:
