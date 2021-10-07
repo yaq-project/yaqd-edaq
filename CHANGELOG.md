@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/).
 
 ##[2021.10.0]
 
+## Changed
+- regenerated avpr based on recent traits update
+
 ## [2021.5.1]
 
 ### Added
